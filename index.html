@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
+   
+    <title>Plant Gifts</title>
+</head>
+<style>
+     /* Background and color styling */
+     .contact-section {
+            background: url('https://images.pexels.com/photos/4534200/pexels-photo-4534200.jpeg?auto=compress&cs=tinysrgb&w=600') center/cover no-repeat;
+            color: #f3efef;
+            padding: 40px 0;
+            width: 99.0%;
+        }
+        .contact-section .contact-info {
+            font-size: 1.1em;
+        }
+        .contact-section h2 {
+            font-weight: bold;
+            color: #fff;
+        }
+        .contact-section .icon {
+            color: #FFC107;
+        }
+        .form-control {
+            background: transparent;
+            border: 1px solid #948b8b;
+            color: #fff;
+            
+        }
+        .form-control::placeholder {
+            color: #fff;
+        }
+        .submit-btn {
+            background-color: #FFC107;
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: #333;
+            margin-left: 33%;
+        }
+        .row{
+            margin-left: 100px;
+        }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+    }
+
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .product-card {
+        
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin: 10px;
+        padding: 15px;
+        text-align: center;
+        width: calc(33.333% - 40px);
+    }
+
+    .product-card h2 {
+        font-size: 1.2em;
+    }
+
+    .product-card p {
+        margin: 5px 0;
+    }
+
+    .rating {
+        color: #ffcc00;
+        /* Star color */
+    }
+
+    .delivery {
+        font-weight: bold;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    header {
+        background-color: #3590a5;
+        color: white;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .logo {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 0 1rem;
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #ede5e4;
+    }
+
+    .nav-buttons {
+        display: flex;
+    }
+
+    .button {
+        background-color: #0f0d0d;
+        color: white;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-left: 1rem;
+    }
+
+    .hamburger {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        background-color: #333;
+        color: white;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: white;
+        
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        width: 50%;
+        margin-left: 33%;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #fcfbfb;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+        border-color: #ff6347;
+        outline: none;
+    }
+    .cart-icon {
+    position: relative;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    right: -200px;
+}
+
+.cart-icon .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: rgb(40, 36, 36);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+.footer{
+    width: 99%;
+}
+
+@media (max-width: 600px) {
+    
+    .cart-icon {
+        font-size: 20px;
+    }
+
+    .cart-icon .cart-count {
+        padding: 1px 5px;
+        font-size: 10px;
+    }
+}
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            background-color: #333;
+            top: 60px;
+            width: 100%;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .hamburger {
+            display: block;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .product-card {
+            width: calc(50% - 40px);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .product-card {
+            width: calc(100% - 40px);
+        }
+    }
+</style>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <img src="Abstract Green Healthy Life Free Logo.jpg" class="logo">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+                <div class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+           
+            <div class="nav-buttons">
+                <a class="button" href="#signup">Sign Up</a>
+                <a class="button" href="#login">Log In</a>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+        <div class="product-container">
+            <div class="product-card">
+                <img
+                    src="data:image/jpeg;base64,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">
+                <h2>The Prosperity Duet</h2>
+                <p>₹ 2895</p>
+                <div class="rating">
+                    <span>4.4</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">90-Min Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-bow-of-abundance-302326-m.jpg">
+                <h2>Bow of Abundance</h2>
+                <p>₹ 1245</p>
+                <div class="rating">
+                    <span>4.5</span> <span>⭐ (8)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-rhythm-of-calathea-269072-m.jpg">
+                <h2>Rhythm of Calathea</h2>
+                <p>₹ 1845</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-sunny-dreams-275557-m.jpg">
+                <h2>Sunny Dreams</h2>
+                <p>₹ 3295</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-a-walk-in-the-garden-basket-132899-m.jpg">
+                <h2>A walk in the garden basket</h2>
+                <p>₹ 2645</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-guardian-of-wisdom-302330-m.jpg">
+                <h2>guardian-of-wisdom</h2>
+                <p>₹ 1195</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-wishes-from-nature-275558-m.jpg">
+                <h2>Wishes from nature</h2>
+                <p>₹ 2995</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-the-caregiver-206794-m.jpg">
+                <h2>The Caregiver</h2>
+                <p>₹ 1645</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-green-virtue-266187-m.jpg">
+                <h2>Green Virtue</h2>
+                <p>₹ 1745</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-pink-wishes-302328-m.jpg">
+                <h2>Pink Wishes</h2>
+                <p>₹ 1845</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-harmony-in-green-240886-m.jpg">
+                <h2>Harmony In Green</h2>
+                <p>₹ 3045</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-mystic-wealth-302331-m.jpg">
+                <h2>Mystic Wealth</h2>
+                <p>₹ 1045</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-rhythm-of-calathea-269072-m.jpg">
+                <h2>Rhythm of Calathea</h2>
+                <p>₹ 1845</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-garden-of-aroma-264269-m.jpg">
+                <h2>Garden Of Aroma</h2>
+                <p>₹ 3345</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-balance-of-life-money-plant-and-bamboo-plant-combo-284072-m.jpg">
+                <h2>Balance Of Life Money Plant And Bamboo Plant Combo</h2>
+                <p>₹ 1295</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-the-prosperous-266188-m.jpg">
+                <h2>The Prosperous</h2>
+                <p>₹ 1745</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-evergreen-bliss-275556-m.jpg">
+                <h2>Evergreen Bliss</h2>
+                <p>₹ 2895</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-aglaonema-wishes-260787-m.jpg">
+                <h2>Aglaonema Wishes</h2>
+                <p>₹ 1495</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-peaceful-greens-260782-m.jpg">
+                <h2>Peaceful Greens</h2>
+                <p>₹ 1245</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-beloved-memories-haworthia-succulent-with-pot-personalized-240948-m.jpg">
+                <h2>Beloved Memories Haworthia Succulent With Pot Personalized</h2>
+                <p>₹ 745</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-evergreen-harmony-plant-bundle-269294-m.jpg">
+                <h2>Evergreen Harmony Plant Bundle</h2>
+                <p>₹ 2095</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-ethereal-in-pink-149536-m.jpg">
+                <h2>Ethereal In Pink</h2>
+                <p>₹ 1395</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-rhythm-of-calathea-269072-m.jpg">
+                <h2>Rhythm of Calathea</h2>
+                <p>₹ 1845</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-snow-white-s-luck-264391-m.jpg">
+                <h2>Snow White S Luck</h2>
+                <p>₹ 1945</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-zen-essence-257617-m.jpg">
+                <h2>Zen Essence</h2>
+                <p>₹ 2095</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-rhythm-of-calathea-269072-m.jpg">
+                <h2>Rhythm of Calathea</h2>
+                <p>₹ 1845</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-nature-s-embrace-240893-m.jpg">
+                <h2>Nature S Embrace</h2>
+                <p>₹ 1695</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-rhythm-of-calathea-269072-m.jpg">
+                <h2>Rhythm of Calathea</h2>
+                <p>₹ 1845</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-good-fortune-trio-money-snake-and-jade-plant-with-pot-269296-m.jpg">
+                <h2>Good Fortune Trio Money Snake And Jade Plant With Pot</h2>
+                <p>₹ 1194</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-calm-gold-302329-m.jpg">
+                <h2>Calm Gold</h2>
+                <p>₹ 1495</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-crimson-anthurium-302327-m.jpg">
+                <h2>Crimson Anthurium</h2>
+                <p>₹ 2145</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-kalanchoe-s-symphony-268499-m.jpg">
+                <h2>Kalanchoe S Symphony</h2>
+                <p>₹ 2145</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-hello-aloe-in-pink-149537-m.jpg">
+                <h2>Hello Aloe In Pink</h2>
+                <p>₹ 1145</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-color-me-wild-154657-m.jpg">
+                <h2>Color Me Wild</h2>
+                <p>₹ 1495</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-festive-fortune-334563-m.jpg">
+                <h2>Festive Fortune</h2>
+                <p>₹ 1695</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-royal-pink-335107-m.jpg">
+                <h2>Royal Pink</h2>
+                <p>₹ 1145</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-maharani-s-bagicha-334540-m.jpg">
+                <h2>Maharani S Bagicha</h2>
+                <p>₹ 3145</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-firecracker-fascination-335108-m.jpg">
+                <h2>Firecracker Fascination</h2>
+                <p>₹ 995</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-purity-of-prayers-335111-m.jpg">
+                <h2>Purity Of Prayers</h2>
+                <p>₹ 2295</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-marigold-mahal-334517-m.jpg">
+                <h2>Marigold Mahal</h2>
+                <p>₹ 3095</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-kind-like-kalanchoe-281138-m.jpg">
+                <h2>kind like kalanchoe</h2>
+                <p>₹ 1845</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-golden-gem-335109-m.jpg">
+                <h2>golden gem</h2>
+                <p>₹ 1195</p>
+                <div class="rating">
+                    <span>4.9</span> <span>⭐ (14)</span>
+                </div>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-imperial-indulgence-334532-m.jpg">
+                <h2>imperial indulgence</h2>
+                <p>₹ 2945</p>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-prosperous-flame-335104-m.jpg">
+                <h2>prosperous flame</h2>
+                <p>₹ 1545</p>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <div class="product-card">
+                <img
+                    src="https://res.cloudinary.com/interflora/f_auto,q_auto,t_pnopt5prodlp/products/p-ethereal-glow-335225-m.jpg">
+                <h2>Ethereal glow</h2>
+                <p>₹ 1745</p>
+                <p class="delivery">Same Day Delivery</p>
+            </div>
+            <!-- Add more product cards as needed -->
+        </div>
+    </main>
+    
+
+
+<div class="container my-5">
+    <h2 class="text-center">Sign Up to Our Gift</h2>
+    <form class="text-center">
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="Enter your email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <section class="contact-section">
+        
+            <div class="row">
+                <!-- Contact Info -->
+                <div class="col-md-6 contact-info">
+                    <h2>Contact Us</h2>
+                    <p class="mb-1">
+                        <i class="icon fa fa-phone"></i> Call Us: <br>
+                        +916301345186, +919989073646
+                    </p>
+                    <p class="mb-1">
+                        <i class="icon fa fa-map-marker"></i> Location: <br>
+                        Nizamabad, Telangana, India
+                    </p>
+                    <p>
+                        <i class="icon fa fa-clock"></i> Business Hours: <br>
+                        Mon - Fri: 10 am - 8 pm<br>
+                        Sat, Sun: Closed
+                    </p>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-md-6">
+                    <form>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter a valid email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="3" placeholder="Enter your message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+       
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+    <footer class="footer">
+        <p>&copy; 2024 Plant Gifts. All rights reserved.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
